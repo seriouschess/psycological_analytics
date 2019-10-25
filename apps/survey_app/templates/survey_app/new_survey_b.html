@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Psych Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'survey_app/css/style.css' %}">
+</head>
+<body class="be_blue">
+  <a href="/survey">Back to homepage.</a>
+  {%for message in messages%}
+  <div class="container bg-warning">
+    <h3 class="text-danger bg-warning">{{message}}</h3>
+  </div>
+  {%endfor%}
+  <div class="container bg-info">
+    <p class="bg-info">Currently logged in as {{user.username}} {%if user.surveyed%}<a href="/survey/summary/{{user.id}}" class="text-white bg-info"> See data from previously taken survey.</a>{%endif%}</p>
+  </div>
+  <h1 class="header">New Survey</h1><br>
+  <div class=container>
+  <h3 class="righty">Type the following statement EXACTLY:</h3>
+    <form method="POST" id="survey_part_b">
+      {% csrf_token %}
+      <div id="degrasse_tyson">
+        <label for="anxiety_select"><h4 class="bg-dark text-warning">Knowing how to think empowers you far beyond those who know only what to think.</h4></label>
+      </div>
+        <textarea class="test_box righty" name="text_test"></textarea>
+        <input type="hidden" name="time">
+        <input type="hidden" name="clicks">
+        <input type="hidden" name="keys_pressed">
+        <input type="hidden" name="backspaces">
+        <button id="thebutton" onclick="sendItAgain()">Submit Survey</button>
+    </form>
+  </div>
+<script type="text/javascript" src="{% static 'survey_app/js/information_collector.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Psych Survey</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <a href="/">Log Out</a>
+  <div class="container bg-info">
+  <h2>Welcome to the survey application: {{user.username}}! :D</h2>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h4>This project is intended to explore how websites collect user data. It's all the rage in the current year!</h4>
+      </div>
+      <div class="col-sm">
+        <h4> If you would like to see <a href="/survey/summary">our data so far</a> click the link :D</h4>
+      </div>
+    </div>
+  </div>
+  <div class="container bg-warning">
+    <h3> You are strongly urged to <a href="/survey/disclaimer">read the disclaimer</a> before taking the survey. By selecting <a href="/survey/new/a">Go to Survey</a>, you agree to all terms listed in the disclaimer.</h3>
+  </div>
+  <div class="container">
+  <p>I understand! <a href="/survey/new/a">Go to Survey</a></p>
+  </div>
+</body>
+</html>

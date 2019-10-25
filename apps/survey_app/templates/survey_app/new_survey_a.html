@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Psych Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  {% load static %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="{% static 'survey_app/css/style.css' %}">
+</head>
+<body class="be_blue">
+  <a href="/survey">Back to homepage.</a>
+  <div class="container bg-info">
+    <p class="bg-info">Currently logged in as {{user.username}} {%if user.surveyed%}<a href="/survey/summary/{{user.id}}" class="text-white bg-info"> See data from previously taken survey.</a>{%endif%}</p>
+  </div>
+  <h1 class="header">New Survey</h1>
+  <div class="container">
+    <form method="POST" id="survey_part_a">
+        {% csrf_token %}
+              <label for="anxiety_select"><h5 class="question_label">On a scale of 1-10 what would you say your anxiety level is on average? (1 being no stress and 10 being a nervous wreck)</h5></label>
+              <select class="select_box" id="anxiety_select" name="anxiety_int">
+                {%for x in ten%}
+                  <option value="{{x}}">{{x}}</option>
+                {%endfor%}
+              </select>
+
+              <label for="lifestyle_select"><h5 class="question_label">On a scale of 1-10 how active is your lifestyle? (1 sits and sleeps all day and 10 goes to the gym everyday)</h5></label>
+              <select class="select_box" id="lifestyle_select" name="lifestyle_int">
+                {%for x in ten%}
+                  <option value="{{x}}">{{x}}</option>
+                {%endfor%}
+              </select>
+
+              <label for="anxiety_select"><h5 class="question_label">On a scale of 1-10 what would you say your confidence level is on average? (1 means everything is impossible 10 means anything can be done</h5></label>
+              <select class="select_box" id="anxiety_select" name="confidence_int">
+                {%for x in ten%}
+                  <option value="{{x}}">{{x}}</option>
+                {%endfor%}
+              </select>
+
+              <label for="happy_select"><h5 class="question_label">On a scale of 1-10 how happy would you say you are on average (this survey is anonymous!)? (1 never happy and 10 being always happy</h5></label>
+              <select class="select_box" id="happy_select" name="happy_int">
+                {%for x in ten%}
+                  <option value="{{x}}">{{x}}</option>
+                {%endfor%}
+              </select>
+              <input type="hidden" name="time">
+              <input type="hidden" name="clicks">
+              <input type="hidden" name="keys_pressed">
+              <button id="thebutton" onclick="sendItAway()">Continue Survey (2/2)</button>
+            </form>
+          </div>
+          <div class="footer"></div>
+
+<script type="text/javascript" src="{% static 'survey_app/js/information_collector.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Psych Survey</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <a href="/survey">Back to homepage.</a>
+
+    <div class="container bg-secondary">
+      <h1>Survey results: This data will contribute to the project :D</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm bg-info">
+          <p>Username: {{user.username}}</p>
+          <h3>Ratings out of 10: <small>Were you truthful?</small><h3>
+          <p>Anxiety Rating: {{survey.anxiety_rating}}</p>
+          <p>Fitness Rating: {{survey.lifestyle_rating}}</p>
+          <p>Confidence Rating: {{survey.confidence_rating}}</p>
+          <p>Happiness Rating: {{survey.happy_rating}}</p>
+          </div>
+          <div class="col-sm bg-info">
+            <h3>Tracked Data: :D</h3>
+            <p>Time taken on survey in seconds: {{survey.survey_time}}</p>
+            <p>Number of clicks to take survey: {{survey.survey_clicks}}</p>
+            <p>Number of keys pressed to take survey: {{survey.survey_keypress}}</p>
+            <p>Number of backspaces pressed to correctly type requested statement: {{survey.survey_backspaces}}</p>
+            <p>Number of characters mismatched after typing requested statement: {{mismatched_characters}}</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="container bg-secondary">
+    <h1 class="text-center"><a href="/survey/summary">To Our Data</a></h1>
+  </div>
+</body>
+</html>

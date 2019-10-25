@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Psych Survey</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <a href="/survey">Back to homepage</a>
+  <h1>Our Data so far: <a href="/survey/summary/analytics">View Analytics</a></h1>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Anxiety</th>
+      <th scope="col">Fitness</th>
+      <th scope="col">Confidence</th>
+      <th scope="col">Happiness</th>
+      <th scope="col">Time</th>
+      <th scope="col">Clicks</th>
+      <th scope="col">Keys Pressed</th>
+      <th scope="col">Backspaces</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for survey in surveys%}
+    <tr>
+      <th scope="row">--redacted--</th>
+      <td>{{survey.anxiety_rating}}</td>
+      <td>{{survey.lifestyle_rating}}</td>
+      <td>{{survey.confidence_rating}}</td>
+      <td>{{survey.happy_rating}}</td>
+      <td>{{survey.survey_time}}</td>
+      <td>{{survey.survey_clicks}}</td>
+      <td>{{survey.survey_keypress}}</td>
+      <td>{{survey.survey_backspaces}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+<a href="/survey/summary/analytics">Go to Analytics</a>
+</body>
+</html>

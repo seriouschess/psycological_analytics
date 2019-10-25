@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  {%for message in messages%}
+  <div class="container bg-warning">
+    <h3 class="text-danger">{{message}}</h3>
+  </div>
+  {%endfor%}
+  <div class="container bg-info">
+    <h1>Please login to participate in the survey project :D</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h4 class="text-danger">You are strongly encouraged to use a username that has nothing to do with your name or likeness. The survey is intended to be taken anonymously.</h4>
+      </div>
+      <div class="col-sm">
+        <form method="POST" class="form-group">
+          {% csrf_token %}
+          <label>Username:<input class="form-control" type="text" name="username"></label>
+          <label>Password:<input class="form-control" type="password" name="password"></label>
+          <input type = "submit" value="login/register">
+        </form>
+      </div>
+    </div>
+    <div class="container bg-warning text-center">
+    <p>You are expected to <a href="/survey/disclaimer">read the disclaimer</a> before submitting a survey.</p>
+    </div>
+    <div class="container bg-info text-center">
+      <p>You can visit <a href="/survey/summary">our data so far</a> to see what has been collected.</p>
+    </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
